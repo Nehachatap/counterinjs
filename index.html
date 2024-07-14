@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #b2beb5;
+        }
+        .card {
+            border: 1px solid black;
+            border-radius: 15px;
+            padding: 10px;
+            margin-left: 350px;
+            margin-right: 350px;
+            background-color:#845b4d;
+
+        }
+        .choco-img {
+            padding: 30px;
+            display: block;
+            margin: 10px auto;
+            
+        }
+        .choco-heading {
+            text-align: center;
+        }
+        .quantity-btn-container {
+            display: flex;
+            justify-content: space-around;
+            font-size: 30px;
+            
+           }
+        .btn{
+            height: 40px;
+            width: 150px;
+            border-radius: 20px;
+            font-size: 30px;
+            background-color: #e8dad4;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+        .buybtn{
+            margin-left: 310px;
+            margin-bottom: 20px;
+            height: 50px;
+            width: 200px;
+            border-radius: 5px;
+            background-color: black;
+            color: beige;
+            cursor: pointer;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img src="choco.jpg" height="400px" width="600px" class="choco-img">
+        <h2 class="choco-heading" ><b>DAIRY MILK SILK</b></h2>
+
+        <div class="quantity-btn-container">
+            <button class="btn" type="button" onclick="ChangeQuantity('dec')">
+                -
+            </button>
+            <span id="quantity">1</span>
+            <button  class="btn" type="button" onclick="ChangeQuantity('inc')">
+                +
+            </button>
+        </div>
+          <div>
+            <button class="buybtn">BUY NOW</button>
+           </div>
+    </div>
+
+    <script>
+         const quantityElement = document.getElementById("quantity");
+        let quantity = parseInt(quantityElement.innerText);
+
+        function ChangeQuantity(op) {
+
+            if (quantity == 1 && op == "dec"){
+            alert('quantity cannot be less than 1')
+                return
+            }
+            else if (quantity == 5 && op == "inc"){
+            alert('quantity cannot be more than 5')
+                return
+            }
+                quantityElement.innerText = op ==='inc' ? ++ quantity : --quantity;
+        }
+    </script>
+</body>
+</html>
